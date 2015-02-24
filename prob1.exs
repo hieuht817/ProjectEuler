@@ -1,0 +1,19 @@
+defmodule SumMulti do
+  def sum_of_multiples_of_3_or_5_below(n) do
+    sum_multi(1, n, 0)
+  end
+
+  defp sum_multi(count, n, sum) when count < n do
+    if rem(count, 3) == 0 or rem(count, 5) == 0 do
+      sum_multi(count + 1, n, sum + count)
+    else
+      sum_multi(count + 1, n, sum)
+    end
+  end
+
+  defp sum_multi(_count, _n, sum) do
+    sum
+  end
+end
+
+IO.puts SumMulti.sum_of_multiples_of_3_or_5_below 1000
